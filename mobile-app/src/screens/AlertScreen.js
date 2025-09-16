@@ -45,7 +45,6 @@ export default function AlertsScreen() {
     <View style={styles.container}>
       {/* Header */}
       <View style={styles.headerRow}>
-        <Text style={styles.headerLogo}>🌿</Text>
         <Text style={styles.headerTitle}>Herbify</Text>
         <View style={{ flex: 1 }} />
       
@@ -82,10 +81,6 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     marginBottom: 16,
-  },
-  headerLogo: {
-    fontSize: 24,
-    marginRight: 8,
   },
   headerTitle: {
     fontSize: 22,

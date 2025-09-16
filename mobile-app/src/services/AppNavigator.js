@@ -9,7 +9,7 @@ import ConsumerDashboard from '../screens/ConsumerDashboard';
 import ProcessorDashboard from '../screens/ProcessorDashboard';
 import ScanScreen from '../screens/ScanScreen';
 import RetailerDashboard from '../screens/RetailerDashboard';
-
+import AlertScreen from '../screens/AlertScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -25,6 +25,7 @@ export default function AppNavigator() {
       <Stack.Screen name="ProcessorDashboard" component={ProcessorDashboard} />
       <Stack.Screen name="ScanScreen" component={ScanScreen} />
       <Stack.Screen name="RetailerDashboard" component={RetailerDashboard} />
+      <Stack.Screen name="AlertScreen" component={AlertScreen} />
      
      
     </Stack.Navigator>

@@ -41,7 +41,7 @@ export default function FarmerDashboard() {
       date: '12/05/24 08:15',
       cid: 'JX-734',
       tag: 'Tag Bound',
-      tagColor: COLORS.green,
+      tagColor: '#096819ff',
       status: 'Verified',
       statusColor: COLORS.green,
       moisture: '12%',
@@ -58,9 +58,9 @@ export default function FarmerDashboard() {
       date: '11/05/24 14:30',
       cid: 'JX-734',
       tag: 'No Tag',
-      tagColor: '#E9B548',
+      tagColor: '#684a09ff',
       status: 'Pending',
-      statusColor: '#E9B548',
+      statusColor: '#684a09ff',
       moisture: 'N/A',
       freshness: 'N/A',
       aiSpecies: null,
@@ -89,15 +89,17 @@ export default function FarmerDashboard() {
           <Text style={styles.welcomeText}>Welcome back,</Text>
           <Text style={styles.userName}>Rosa</Text>
         </View>
-        <View style={styles.bellContainer}>
-          <View style={styles.bellIconWrap}>
-            <Image source={require('../assets/bell.png')} style={styles.bellIcon} />
-            <View style={styles.badge}>
-              <Text style={styles.badgeText}>2</Text>
+        <TouchableOpacity onPress={() => navigation.navigate('AlertScreen')}>
+          <View style={styles.bellContainer}>
+            <View style={styles.bellIconWrap}>
+              <Image source={require('../assets/bell.png')} style={styles.bellIcon} />
+              <View style={styles.badge}>
+                <Text style={styles.badgeText}>2</Text>
+              </View>
             </View>
           </View>
+        </TouchableOpacity>
         </View>
-      </View>
       <Text style={styles.brandTitle}>Herbify</Text>
       <Text style={styles.subtitle}>Dashboard</Text>
 
@@ -146,7 +148,7 @@ export default function FarmerDashboard() {
                   {item.aiSpecies ? (
                     <Text style={styles.qualityItem}>AI Species: {item.aiSpecies}</Text>
                   ) : (
-                    <BlinkingText style={[styles.qualityItem, { color: '#E9B548' }]}>
+                    <BlinkingText style={[styles.qualityItem, { color: '#684a09ff' }]}>
                       AI: {item.aiStatus}
                     </BlinkingText>
                   )}
@@ -164,11 +166,14 @@ export default function FarmerDashboard() {
 const styles = StyleSheet.create({
   background: { flex: 1, backgroundColor: COLORS.dark, paddingTop: 18 },
   headerRow: { flexDirection: 'row', alignItems: 'center', marginTop: 16, marginBottom: 10, paddingHorizontal: 26 },
-  avatar: { width: 60, height: 52, borderRadius: 2, marginRight: 3, marginLeft: 0 },
+  avatar: { width: 60, height: 52, borderRadius: 2, marginRight: 3, marginLeft: -10 },
   welcomeText: { color: COLORS.bluegreen, fontSize: 16 },
   userName: { color: COLORS.white, fontSize: 22, fontWeight: 'bold' },
-  bellContainer: { flex: 1, alignItems: 'flex-end' },
-  bellIconWrap: { position: 'relative' },
+  bellContainer: { position: 'absolute',
+  top: -10,   
+  right: -130,  
+  zIndex: 10},
+  bellIconWrap: { position: 'absolute' },
   bellIcon: { width: 28, height: 28 },
   badge: { position: 'absolute', right: -5, top: -4, backgroundColor: COLORS.green, borderRadius: 12, paddingHorizontal: 5 },
   badgeText: { color: COLORS.white, fontSize: 12, fontWeight: 'bold' },
@@ -193,7 +198,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     flexDirection: 'row',
-    minWidth: 70,  // ensures "Pending" always looks like a capsule
+    minWidth: 70, 
   },
   statusPillText: { color: COLORS.white, fontWeight: '700', fontSize: 13 },
   batchId: { color: COLORS.dark, fontSize: 13, marginBottom: 3 },

@@ -4,24 +4,64 @@
     "slug": "herbify",
     "version": "1.0.0",
     "orientation": "portrait",
+    "platforms": ["ios", "android", "web"],
+    "icon": "./src/assets/herbify-logo.png",
     "splash": {
       "image": "./src/assets/herbify-logo.png",
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "backgroundColor": "#111714"
     },
-    "assetBundlePatterns": [
-      "**/*"
-    ],
+    "assetBundlePatterns": ["**/*"],
     "extra": {
       "eas": {
         "projectId": "a3df1404-bfe3-4d38-88e4-f7235ac8e9a1"
       }
     },
     "android": {
-      "package": "com.shrey1803.herbify"
+      "package": "com.shrey1803.herbify",
+      "adaptiveIcon": {
+        "foregroundImage": "./src/assets/herbify-logo.png",
+        "backgroundColor": "#111714"
+      },
+      "permissions": ["CAMERA", "NOTIFICATIONS", "NFC"]
+    },
+    "ios": {
+      "bundleIdentifier": "com.shrey1803.herbify",
+      "supportsTablet": false,
+      "infoPlist": {
+        "NSCameraUsageDescription": "This app uses the camera to scan QR codes and NFC tags.",
+        "NSUserTrackingUsageDescription": "This identifier will be used to deliver personalized ads to you."
+      }
+    },
+    "web": {
+      "favicon": "./src/assets/herbify-logo.png"
     },
     "plugins": [
-      "expo-barcode-scanner"
-    ]
+      "expo-barcode-scanner",
+      [
+        "expo-notifications",
+        {
+          "icon": "./src/assets/herbify-logo.png",
+          "color": "#85CB33",
+          "sounds": ["default"]
+        }
+      ],
+      [
+        "expo-build-properties",
+        {
+          "ios": {
+            "useFrameworks": "static"
+          },
+          "android": {
+            "enableProguardInReleaseBuilds": true
+          }
+        }
+      ]
+    ],
+    "notification": {
+      "icon": "./src/assets/herbify-logo.png",
+      "color": "#85CB33",
+      "iosDisplayInForeground": true
+    }
   }
 }

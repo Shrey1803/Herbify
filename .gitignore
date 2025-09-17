@@ -1,5 +1,6 @@
 # Dependency directories
-/node_modules
+android/.gradle
+mobile-app/node_modules
 /.expo
 
 # VS Code/IDE settings and logs

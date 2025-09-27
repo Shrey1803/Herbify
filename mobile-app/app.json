@@ -43,7 +43,7 @@
         {
           "icon": "./src/assets/herbify-logo.png",
           "color": "#85CB33",
-          "sounds": []
+          "sounds": ["default"]
         }
       ],
       [

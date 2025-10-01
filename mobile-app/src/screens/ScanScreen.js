@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, StyleSheet, Button, Alert, Platform, StatusBar } from 'react-native';
+import { View, Text, StyleSheet, Button, Platform, StatusBar } from 'react-native';
 import { useCameraPermissions, CameraView } from 'expo-camera';
+import * as Linking from 'expo-linking';
 
 export default function ScanScreen() {
   const [permission, requestPermission] = useCameraPermissions();
@@ -14,9 +15,19 @@ export default function ScanScreen() {
   const handleBarCodeScanned = ({ data }) => {
     if (!scanned) {
       setScanned(true);
-      Alert.alert('QR Code Scanned', data, [
-        { text: 'OK', onPress: () => setScanned(false) },
-      ]);
+      // Check if data is a valid url and open it
+      if (data && /^(http|https):\/\/[^ "]+$/.test(data)) {
+        Linking.openURL(data)
+          .catch(() => {
+            // Fallback alert if link fails
+            Alert.alert('Error', 'Failed to open URL.');
+          })
+          .finally(() => setScanned(false));
+      } else {
+        Alert.alert('QR Code Scanned', data, [
+          { text: 'OK', onPress: () => setScanned(false) },
+        ]);
+      }
     }
   };
 
@@ -35,7 +46,7 @@ export default function ScanScreen() {
       <CameraView
         style={styles.camera}
         facing="back"
-        barcodeScannerSettings={{ barcodeTypes: 'qr' }}
+        barcodeScannerSettings={{ barcodeTypes: ['qr'] }}
         onBarcodeScanned={handleBarCodeScanned}
       />
       <Text style={styles.instructions}>Point the camera at a QR code</Text>

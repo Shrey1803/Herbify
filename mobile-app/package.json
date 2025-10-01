@@ -10,6 +10,7 @@
     "clear": "expo start --clear"
   },
   "dependencies": {
+    "@expo/vector-icons": "^13.0.0",
     "@mgcrea/vision-camera-code-scanner": "^0.3.3",
     "@react-native-async-storage/async-storage": "^2.2.0",
     "@react-navigation/native": "^7.1.17",
@@ -17,11 +18,11 @@
     "axios": "^1.12.2",
     "expo": "~54.0.7",
     "expo-barcode-scanner": "^13.0.1",
-    "@expo/vector-icons": "^13.0.0",
     "expo-blur": "~14.0.0",
     "expo-build-properties": "~1.0.8",
     "expo-camera": "~17.0.7",
     "expo-dev-client": "~6.0.12",
+    "expo-linking": "^8.0.8",
     "expo-location": "~17.0.1",
     "expo-notifications": "~0.32.11",
     "expo-splash-screen": "~31.0.10",

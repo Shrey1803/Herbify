@@ -42,8 +42,7 @@
         "expo-notifications",
         {
           "icon": "./src/assets/herbify-logo.png",
-          "color": "#85CB33",
-          "sounds": ["default"]
+          "color": "#85CB33"
         }
       ],
       [
